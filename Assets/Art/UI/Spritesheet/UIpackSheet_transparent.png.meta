@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -16115,10 +16115,10 @@ TextureImporter:
       UIpackSheet_transparent_290: -1551287194
       UIpackSheet_transparent_500: -2039172974
       UIpackSheet_transparent_25: 1078446405
+      UIpackSheet_transparent_661: 630061943
       UIpackSheet_transparent_283: 1536922097
       UIpackSheet_transparent_649: 937051929
       UIpackSheet_transparent_391: 1957870187
-      UIpackSheet_transparent_661: 630061943
       UIpackSheet_transparent_652: -13519096
       UIpackSheet_transparent_466: 431629151
       UIpackSheet_transparent_338: -1867433253
@@ -16203,11 +16203,12 @@ TextureImporter:
       UIpackSheet_transparent_337: -1310969705
       UIpackSheet_transparent_655: -350845007
       UIpackSheet_transparent_123: -1531785187
-      UIpackSheet_transparent_349: 620545206
       UIpackSheet_transparent_165: 677859170
+      UIpackSheet_transparent_349: 620545206
+      UIpackSheet_transparent_430: 1019048203
       UIpackSheet_transparent_199: -1097346513
-      UIpackSheet_transparent_64: -133986326
       UIpackSheet_transparent_210: -1785432305
+      UIpackSheet_transparent_64: -133986326
       UIpackSheet_transparent_117: 1550000981
       UIpackSheet_transparent_172: -346576685
       UIpackSheet_transparent_486: 1483407088
@@ -16221,7 +16222,6 @@ TextureImporter:
       UIpackSheet_transparent_392: 835088450
       UIpackSheet_transparent_393: 237249542
       UIpackSheet_transparent_244: -1608578938
-      UIpackSheet_transparent_430: 1019048203
       UIpackSheet_transparent_686: 1770515460
       UIpackSheet_transparent_259: -1538697799
       UIpackSheet_transparent_245: 301593658
@@ -16296,8 +16296,8 @@ TextureImporter:
       UIpackSheet_transparent_544: 562065695
       UIpackSheet_transparent_60: 136894197
       UIpackSheet_transparent_219: -1795013945
-      UIpackSheet_transparent_29: 1136732511
       UIpackSheet_transparent_657: 2061409909
+      UIpackSheet_transparent_29: 1136732511
       UIpackSheet_transparent_80: -1119985370
       UIpackSheet_transparent_475: -1389622900
       UIpackSheet_transparent_332: 1327879492
@@ -16310,9 +16310,9 @@ TextureImporter:
       UIpackSheet_transparent_555: -1889864774
       UIpackSheet_transparent_37: -1431480520
       UIpackSheet_transparent_437: -1445045138
-      UIpackSheet_transparent_424: -2083985495
-      UIpackSheet_transparent_648: -1069034677
       UIpackSheet_transparent_462: 2141918071
+      UIpackSheet_transparent_648: -1069034677
+      UIpackSheet_transparent_424: -2083985495
       UIpackSheet_transparent_222: 1488918400
       UIpackSheet_transparent_252: -1827058200
       UIpackSheet_transparent_196: 884346588
@@ -16340,8 +16340,8 @@ TextureImporter:
       UIpackSheet_transparent_658: 1920385700
       UIpackSheet_transparent_90: -1080994264
       UIpackSheet_transparent_0: 973175554
-      UIpackSheet_transparent_214: 1364217342
       UIpackSheet_transparent_350: 1361044304
+      UIpackSheet_transparent_214: 1364217342
       UIpackSheet_transparent_367: 1503031917
       UIpackSheet_transparent_632: 1401393817
       UIpackSheet_transparent_592: 454482875
@@ -16396,8 +16396,8 @@ TextureImporter:
       UIpackSheet_transparent_371: -1014807795
       UIpackSheet_transparent_744: -538057240
       UIpackSheet_transparent_128: -1678327125
-      UIpackSheet_transparent_288: 1506165528
       UIpackSheet_transparent_425: 1354316201
+      UIpackSheet_transparent_288: 1506165528
       UIpackSheet_transparent_557: -983901501
       UIpackSheet_transparent_750: -935654944
       UIpackSheet_transparent_461: 87789934
@@ -16583,8 +16583,8 @@ TextureImporter:
       UIpackSheet_transparent_154: -1214924541
       UIpackSheet_transparent_24: 1669045327
       UIpackSheet_transparent_654: 1731849997
-      UIpackSheet_transparent_408: 385893819
       UIpackSheet_transparent_419: -1009956949
+      UIpackSheet_transparent_408: 385893819
       UIpackSheet_transparent_167: -1110168077
       UIpackSheet_transparent_510: 141531108
       UIpackSheet_transparent_379: -1201516389
@@ -16652,9 +16652,9 @@ TextureImporter:
       UIpackSheet_transparent_269: -1109116928
       UIpackSheet_transparent_300: 715597244
       UIpackSheet_transparent_238: -2089003580
-      UIpackSheet_transparent_264: -728000233
-      UIpackSheet_transparent_291: 1988293685
       UIpackSheet_transparent_640: -667435010
+      UIpackSheet_transparent_291: 1988293685
+      UIpackSheet_transparent_264: -728000233
       UIpackSheet_transparent_309: -1004752855
       UIpackSheet_transparent_146: -897888890
       UIpackSheet_transparent_84: -949122683
@@ -16696,8 +16696,8 @@ TextureImporter:
       UIpackSheet_transparent_535: -608472315
       UIpackSheet_transparent_95: -1620759473
       UIpackSheet_transparent_386: -619510463
-      UIpackSheet_transparent_653: -1893512053
       UIpackSheet_transparent_734: 120590383
+      UIpackSheet_transparent_653: -1893512053
       UIpackSheet_transparent_253: -728737471
       UIpackSheet_transparent_27: -1329188792
       UIpackSheet_transparent_530: -483344683
@@ -16749,10 +16749,10 @@ TextureImporter:
       UIpackSheet_transparent_1: -353811116
       UIpackSheet_transparent_511: 201519057
       UIpackSheet_transparent_217: -829126850
-      UIpackSheet_transparent_410: -523545195
       UIpackSheet_transparent_743: -2043420523
       UIpackSheet_transparent_169: 1412709040
       UIpackSheet_transparent_236: -1632714170
+      UIpackSheet_transparent_410: -523545195
       UIpackSheet_transparent_131: 2014448449
       UIpackSheet_transparent_436: -686858194
       UIpackSheet_transparent_365: 1333511296
@@ -16762,8 +16762,9 @@ TextureImporter:
       UIpackSheet_transparent_416: -1351571525
       UIpackSheet_transparent_721: -823513241
       UIpackSheet_transparent_28: 2101025447
-      UIpackSheet_transparent_505: 1411936212
       UIpackSheet_transparent_630: 717292018
+      UIpackSheet_transparent_505: 1411936212
+      UIpackSheet_transparent_746: 35790570
       UIpackSheet_transparent_254: -1666320063
       UIpackSheet_transparent_139: -1072765108
       UIpackSheet_transparent_251: -827190024
@@ -16772,7 +16773,6 @@ TextureImporter:
       UIpackSheet_transparent_440: 736893982
       UIpackSheet_transparent_427: -2144713952
       UIpackSheet_transparent_553: -1185126440
-      UIpackSheet_transparent_746: 35790570
       UIpackSheet_transparent_192: 960334860
       UIpackSheet_transparent_364: 1900713838
       UIpackSheet_transparent_201: -873413282

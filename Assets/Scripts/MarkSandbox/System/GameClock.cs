@@ -15,11 +15,11 @@ public class GameClock : MonoBehaviour
     {
         _visualiser = FindObjectOfType<SandboxFlowVisualiser>();
         Assert.IsNotNull(_visualiser);
+        _visualiser.SetText("Global direction: " + FlowDirectionUtility.directionAsString(_flow));
     }
 
     public void toggleDirection()
     {
-        Debug.Log("Entering toggleDirection. Current value of flow: " + _flow.ToString());
         Assert.IsFalse(_flow == FlowDirection.error);
 
         if (_flow == FlowDirection.forward)
@@ -32,7 +32,5 @@ public class GameClock : MonoBehaviour
         }
 
         _visualiser.SetText("Global direction: " + FlowDirectionUtility.directionAsString(_flow));
-        Debug.Log("Exiting toggleDirection. Current value of flow: " + _flow.ToString());
-
     }
 }

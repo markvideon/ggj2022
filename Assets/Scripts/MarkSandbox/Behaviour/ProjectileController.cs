@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class ProjectileController : MonoBehaviour
 {
@@ -21,13 +22,16 @@ public class ProjectileController : MonoBehaviour
   public void Activate(Transform tower, Vector3 inDirectionOfPlayer, GameClock clock, FlowDirection projectileDirection)
   {
     _visualisationTower.transform.position = tower.position;
-    _visualisationWallBehindPlayer.transform.position = tower.position + 5f * _inDirectionOfPlayer;
-    
+    // Needs to start a safe distance away (with current logic) to prevent projectile blowing up tower right away
+    _visualisationWallBehindPlayer.transform.position = tower.position + 100f * _inDirectionOfPlayer;
+    this.transform.position = tower.transform.position;
+
     _clock = clock;
     _tower = tower;
     _inDirectionOfPlayer = inDirectionOfPlayer;
     _myFlow = projectileDirection;
 
+    _canCollide = true;
     _canMove = true;
   }
 
@@ -38,20 +42,24 @@ public class ProjectileController : MonoBehaviour
 
   private void Move()
   {
-    _workingVector = !FlowDirectionUtility.sameFlowDirection(_myFlow, _clock.flow) ? 
+    Assert.IsTrue(_canCollide);
+    
+    _workingVector = FlowDirectionUtility.sameFlowDirection(_myFlow, _clock.flow) ? 
         _inDirectionOfPlayer : 
         -_inDirectionOfPlayer;
     
     this.transform.position += _moveSpeed * Time.deltaTime * _workingVector;
   }
 
-  private void OnCollisionEnter2D(Collision2D other)
+  private void OnTriggerEnter2D(Collider2D other)
   {
     if (!_canCollide) return;
     
-    var playerComponent = other.collider.GetComponent<PlayerController>();
+    var playerComponent = other.GetComponent<PlayerController>();
+    var wallComponent = other.GetComponent<WallController>();
+    var towerComponent = other.GetComponent<TowerController>();
     
-    if (playerComponent)
+    if (playerComponent || wallComponent || towerComponent)
     {
       PseudoDestroy();
     }

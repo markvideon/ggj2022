@@ -31,7 +31,9 @@ public class TowerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!canShoot && _projectilePool.Count > 0 && (Time.time - lastShotAt >= minimumTimeBetweenShotsMillis))
+        var millisSinceLastShot = 1000f * (_clock.accumulatedTime - lastShotAt);
+        
+        if (!canShoot && _projectilePool.Count > 0 && millisSinceLastShot >= minimumTimeBetweenShotsMillis)
         {
             canShoot = true;
         }
@@ -75,7 +77,9 @@ public class TowerController : MonoBehaviour
         _recycledTargetVector.y = _activeTargets[0].transform.position.y - this.transform.position.y;
         _recycledTargetVector.z = _activeTargets[0].transform.position.z - this.transform.position.z;
         _recycledTargetVector.Normalize();
-
+        
+        Debug.Log("About to shoot at _recycledTargetVector: " + _recycledTargetVector);
+        
         projectile.Activate(this.transform, _recycledTargetVector, _clock, _myDirection);
         
         if (FlowDirectionUtility.sameFlowDirection(_myDirection, _clock.flow))
@@ -83,7 +87,7 @@ public class TowerController : MonoBehaviour
            // play any required animations, sounds when a projectile fired *from* tower
         }
 
-        lastShotAt = Time.time;
+        lastShotAt = _clock.accumulatedTime;
     }
     
     public void SpotTargetIfNew(GameObject possibleNewTarget)
@@ -112,10 +116,10 @@ public class TowerController : MonoBehaviour
     {
         Assert.IsTrue(_projectilePool.Contains(projectileController));
         
-        if (_activeProjectiles.Contains(projectileController))
+        if (_projectilePool.Contains(projectileController))
         {
-            _activeProjectiles.Remove(projectileController);
-            _projectilePool.Add(projectileController);
+            _projectilePool.Remove(projectileController);
+            _activeProjectiles.Add(projectileController);
         }
     }
 }

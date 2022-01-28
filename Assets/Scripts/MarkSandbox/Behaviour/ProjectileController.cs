@@ -21,15 +21,19 @@ public class ProjectileController : MonoBehaviour
 
   public void Activate(Transform tower, Vector3 inDirectionOfPlayer, GameClock clock, FlowDirection projectileDirection)
   {
-    _visualisationTower.transform.position = tower.position;
-    // Needs to start a safe distance away (with current logic) to prevent projectile blowing up tower right away
-    _visualisationWallBehindPlayer.transform.position = tower.position + 100f * _inDirectionOfPlayer;
-    this.transform.position = tower.transform.position;
+    this.transform.name = "Projectile";
+    ToggleVisualiserNames();
 
+    _inDirectionOfPlayer = inDirectionOfPlayer;
     _clock = clock;
     _tower = tower;
-    _inDirectionOfPlayer = inDirectionOfPlayer;
     _myFlow = projectileDirection;
+    
+    this.transform.position = _tower.transform.position + 1f * _inDirectionOfPlayer;
+    
+    // Needs to start a safe distance away (with current logic) to prevent projectile blowing up tower right away
+    _visualisationTower.transform.position = _tower.position;
+    _visualisationWallBehindPlayer.transform.position = _tower.position + 15f * _inDirectionOfPlayer;
 
     _canCollide = true;
     _canMove = true;
@@ -43,12 +47,14 @@ public class ProjectileController : MonoBehaviour
   private void Move()
   {
     Assert.IsTrue(_canCollide);
-    
-    _workingVector = FlowDirectionUtility.sameFlowDirection(_myFlow, _clock.flow) ? 
+
+    if (!_clock.inStasis)
+    {
+      _workingVector = FlowDirectionUtility.sameFlowDirection(_myFlow, _clock.flow) ? 
         _inDirectionOfPlayer : 
         -_inDirectionOfPlayer;
-    
-    this.transform.position += _moveSpeed * Time.deltaTime * _workingVector;
+      this.transform.position += _moveSpeed * Time.deltaTime * _workingVector;
+    }
   }
 
   private void OnTriggerEnter2D(Collider2D other)
@@ -72,6 +78,7 @@ public class ProjectileController : MonoBehaviour
 
   private void PseudoDestroy()
   {
+    ToggleVisualiserNames();
     Debug.Log("Projectile was pseudo-destroyed.");
     _visualisationTower.transform.position = somewhereFarAway;
     _visualisationWallBehindPlayer.transform.position = somewhereFarAway;
@@ -79,7 +86,9 @@ public class ProjectileController : MonoBehaviour
     _canMove = false;
     _canCollide = false;
     
-    // Pool
+    this.transform.name = "(Pooled) Projectile";
+    this.transform.position = somewhereFarAway;
+
     var tower = _tower.GetComponent<TowerController>();
     tower.ReturnToPool(this);
   }
@@ -88,5 +97,21 @@ public class ProjectileController : MonoBehaviour
   {
     _visualisationTower = Instantiate(_visualisationPrefab, somewhereFarAway, Quaternion.identity);
     _visualisationWallBehindPlayer = Instantiate(_visualisationPrefab, somewhereFarAway, Quaternion.identity);
+    ToggleVisualiserNames();
+  }
+
+  private void ToggleVisualiserNames()
+  {
+    if (_canMove)
+    {
+      _visualisationTower.name = "ProjectileVisualiser Point A";
+      _visualisationWallBehindPlayer.name = "ProjectileVisualiser Point B";
+    }
+    else
+    {
+      _visualisationTower.name = "(Not in use) ProjectileVisualiser Point A";
+      _visualisationWallBehindPlayer.name = "(Not in use) ProjectileVisualiser Point B";
+    }
+
   }
 }

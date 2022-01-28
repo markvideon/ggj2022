@@ -11,12 +11,15 @@ public enum FlowDirection
   backward
 }
 
-public static class FlowDirectionUtility {
+public static class FlowDirectionUtility
+{
+  public static float stasisThreshold { get { return 0.1f;  } }
   public static bool sameFlowDirection(FlowDirection thisDirection, FlowDirection other)
   {
     return thisDirection == FlowDirection.forward && other == FlowDirection.forward ||
       thisDirection == FlowDirection.backward && other == FlowDirection.backward;
   }
+
   public static string directionAsString(FlowDirection direction)
   {
     switch (direction)

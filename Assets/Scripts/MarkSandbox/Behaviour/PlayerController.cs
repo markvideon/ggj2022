@@ -28,8 +28,18 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Move the bar along
-        float rate = _clock.flow == FlowDirection.forward ? 
-            _rechargeRate : -_consumptionRate;
+        float rate = 0f;
+
+        if (!_clock.inStasis)
+        {
+            if (_clock.flow == FlowDirection.forward)
+            {
+                rate = _rechargeRate;
+            } else if (_clock.flow == FlowDirection.backward)
+            {
+                rate = _consumptionRate;
+            }
+        }
 
         float movement = rate * Time.deltaTime;
         
@@ -47,6 +57,18 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         _recycledMovementVector = context.ReadValue<Vector2>();
+
+        float magnitude = Vector3.Magnitude(_recycledMovementVector);
+        
+        // Sets speed to zero when no input from player
+        if (magnitude < FlowDirectionUtility.stasisThreshold)
+        {
+            _clock.SetSpeed(0f);
+        }
+        else
+        {
+            _clock.SetSpeed(magnitude);
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -74,6 +96,8 @@ public class PlayerController : MonoBehaviour
     
     public void Update()
     {
+        // todo: Handle recharging bar UI here. The state is updated in FixedUpdate.
+        
         this.transform.position += _recycledMovementVector * playerSpeed * Time.deltaTime;
     }
 }

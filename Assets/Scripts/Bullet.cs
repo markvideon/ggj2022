@@ -9,15 +9,21 @@ public class Bullet : MonoBehaviour
     public float speed;
     public bool destroyOnHit;
     Rigidbody2D rb;
+    GameClock gameClock;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        gameClock = FindObjectOfType<GameClock>();
+    }
+
     private void FixedUpdate()
     {
-        rb.velocity = transform.right * speed;
+        rb.velocity = transform.right * speed * gameClock.flowRate;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

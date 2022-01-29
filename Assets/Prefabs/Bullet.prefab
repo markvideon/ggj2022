@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 2
+  speed: 4
   destroyOnHit: 1
 --- !u!50 &1706084596
 Rigidbody2D:

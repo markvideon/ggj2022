@@ -10,17 +10,19 @@ public class Turret : MonoBehaviour
     public GameObject bullet;
     Transform player;
     float refireRateTimer;
+    GameClock gameClock;
 
     private void Start()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
+        gameClock = FindObjectOfType<GameClock>();
     }
 
     private void Update()
     {
         if (active)
         {
-            refireRateTimer += Time.deltaTime;
+            refireRateTimer += Time.deltaTime * gameClock.flowRate;
             if (refireRateTimer >= refireRate)
             {
                 Shoot();

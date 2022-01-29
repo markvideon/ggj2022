@@ -26,6 +26,7 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
+        if (gameClock.flow == FlowDirection.backward) return;
         if (active)
         {
             refireRateTimer += Time.deltaTime * gameClock.flowRate;
@@ -40,7 +41,7 @@ public class Turret : MonoBehaviour
     private void Shoot()
     {
         Transform newBullet = Instantiate(bullet, barrelPosition.position, Quaternion.identity).transform;
-        Physics2D.IgnoreCollision(newBullet.GetComponentInChildren<Collider2D>(), collider);
+        //Physics2D.IgnoreCollision(newBullet.GetComponentInChildren<Collider2D>(), collider);
         Vector3 dir = player.position - barrelPosition.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         newBullet.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

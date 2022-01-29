@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         gameClock = FindObjectOfType<GameClock>();
+        //BufferedState<GameClock, GameClockFrame>.SetBarState(100000000);
     }
 
     public void OnHorizontalInput(InputAction.CallbackContext ctx)
@@ -31,11 +32,17 @@ public class PlayerMovement : MonoBehaviour
         vertical = ctx.ReadValue<float>();
     }
 
+    public void OnTimeSwitch(InputAction.CallbackContext ctx)
+    {
+        gameClock.ToggleDirection();
+    }
+
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal, vertical) * moveSpeed;
-        targetSpeed = Mathf.InverseLerp(0, moveSpeed, rb.velocity.magnitude) + minTimeSpeed;
-        gameClock.SetSpeed(Mathf.MoveTowards(gameClock.flowRate, targetSpeed, timeChangeSpeed * Time.deltaTime));
+        //targetSpeed = Mathf.InverseLerp(0, moveSpeed, rb.velocity.magnitude) + minTimeSpeed;
+        //gameClock.SetSpeed(Mathf.MoveTowards(gameClock.flowRate, targetSpeed, timeChangeSpeed * Time.deltaTime));
+        gameClock.SetSpeed(Mathf.InverseLerp(0, moveSpeed, rb.velocity.magnitude));
         //print(gameClock.flowRate);
     }
 

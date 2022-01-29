@@ -215,7 +215,19 @@ MonoBehaviour:
     m_ActionId: 4a7302b9-fa22-4d42-b090-0d6f1dceb91a
     m_ActionName: Gameplay/Horizontal[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5086679756257074345}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnTimeSwitch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 02421dc6-b0d7-450a-86a3-941417bbe7a9
     m_ActionName: Gameplay/Change Time Direction[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0

@@ -30,7 +30,7 @@ public class GameClock : BufferedState<GameClock, GameClockFrame>
     public void FixedUpdate()
     {
         base.FixedUpdate();
-        _historyVisualiser.SetText("Bar remaining: " + percentageBufferUtilised);
+        //_historyVisualiser.SetText("Bar remaining: " + percentageBufferUtilised);
 
         if (!inStasis)
         {
@@ -54,7 +54,7 @@ public class GameClock : BufferedState<GameClock, GameClockFrame>
     {
         _flow = next;
         _timeSinceChange = 0f;
-        _historyVisualiser.SetText("Bar remaining: " + percentageBufferUtilised);
+        //_historyVisualiser.SetText("Bar remaining: " + percentageBufferUtilised);
         if (!inStasis) _visualiser.SetText("Global direction: " + FlowDirectionUtility.directionAsString(_flow));
     }
 
@@ -78,7 +78,7 @@ public class GameClock : BufferedState<GameClock, GameClockFrame>
         _visualiser = FindObjectOfType<SandboxFlowVisualiser>();
         _historyVisualiser = FindObjectOfType<GameClockHistoryVisualiser>();
         Assert.IsNotNull(_visualiser);
-        Assert.IsNotNull(_historyVisualiser);
+        //Assert.IsNotNull(_historyVisualiser);
         
         // Initially, GameClock is zero as the player does not move
         SetSpeed(0f);

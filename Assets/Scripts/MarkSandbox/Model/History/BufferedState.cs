@@ -15,7 +15,7 @@ public class BufferedState<S, T> : MonoBehaviour
   private float _lastSampledAt;
 
   private static GameClock _clock;
-  private float nominalMillisBetweenSamples = 25f;
+  private float nominalMillisBetweenSamples = 0f;
 
   private Action onToggle;
   
@@ -90,7 +90,7 @@ public class BufferedState<S, T> : MonoBehaviour
         }
         else
         {
-          _clock.SetDirection(FlowDirection.forward);
+          //_clock.SetDirection(FlowDirection.forward);
         }
       }
     }
@@ -98,7 +98,7 @@ public class BufferedState<S, T> : MonoBehaviour
 
   public void Record(T nextFrame)
   {
-    Debug.Log("Adding frame: " + buffer.Count + "/" + buffer.Count);
+    //Debug.Log("Adding frame: " + buffer.Count + "/" + buffer.Count);
     Add(nextFrame);
   }
 

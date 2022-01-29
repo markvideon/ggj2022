@@ -3,7 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Bullet : MonoBehaviour
+public class BulletFrame : Frame
+{
+    public BulletFrame(Vector3 position, Quaternion rotation, float spawnedTime)
+    {
+        this.position = position;
+        this.rotation = rotation;
+        this.spawnedTime = spawnedTime;
+    }
+    public Vector3 position;
+    public Quaternion rotation;
+    public float spawnedTime;
+}
+
+public class Bullet : BufferedState<Bullet, BulletFrame>
 {
     public int damage;
     public float speed;
@@ -13,6 +26,7 @@ public class Bullet : MonoBehaviour
     GameClock gameClock;
     Vector2 storedVelocity;
     int bounces;
+    bool spawnTimeSet;
 
     private void Awake()
     {
@@ -21,6 +35,19 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        base.Start();
+        SetOnRead((Frame) =>
+        {
+            transform.position = Frame.position;
+            transform.rotation = Frame.rotation;
+            if (gameClock.accumulatedTime <= Frame.spawnedTime) Destroy(gameObject);
+        });
+        SetOnWrite(() =>
+        {
+            var newFrame = new BulletFrame(transform.position, transform.rotation, spawnTimeSet ? -100 : gameClock.accumulatedTime);
+            spawnTimeSet = true;
+            Record(newFrame);
+        });
         gameClock = FindObjectOfType<GameClock>();
     }
 
@@ -31,7 +58,15 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = transform.right * speed * gameClock.flowRate;
+        base.FixedUpdate();
+        if (gameClock.flow == FlowDirection.forward)
+        {
+            rb.velocity = transform.right * speed * gameClock.flowRate;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

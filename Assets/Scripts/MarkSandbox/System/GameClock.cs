@@ -12,6 +12,7 @@ public class GameClock : MonoBehaviour
     public bool inStasis { get { return _flowRate < FlowDirectionUtility.stasisThreshold; } }
     
     private SandboxFlowVisualiser _visualiser;
+    public float flowRate { get { return _flowRate; } }
     private float _flowRate = 1f;
 
     // A stand-in for [Time.time] for any entity affected by the [GameClock]. 

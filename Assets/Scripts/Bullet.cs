@@ -7,9 +7,12 @@ public class Bullet : MonoBehaviour
 {
     public int damage;
     public float speed;
+    public int maxBounces;
     public bool destroyOnHit;
     Rigidbody2D rb;
     GameClock gameClock;
+    Vector2 storedVelocity;
+    int bounces;
 
     private void Awake()
     {
@@ -19,6 +22,11 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         gameClock = FindObjectOfType<GameClock>();
+    }
+
+    private void Update()
+    {
+        storedVelocity = rb.velocity;
     }
 
     private void FixedUpdate()
@@ -38,12 +46,21 @@ public class Bullet : MonoBehaviour
             }
             return;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (bounces < maxBounces || maxBounces < 0)
+        {
+            bounces++;
+            float speed = storedVelocity.magnitude;
+            Vector2 dir = Vector2.Reflect(storedVelocity.normalized, collision.contacts[0].normal).normalized;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
         else
         {
-            if (destroyOnHit)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

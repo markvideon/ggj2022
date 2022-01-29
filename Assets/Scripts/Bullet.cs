@@ -28,7 +28,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(other);
         Health health = other.gameObject.GetComponentInParent<Health>();
         if (health)
         {

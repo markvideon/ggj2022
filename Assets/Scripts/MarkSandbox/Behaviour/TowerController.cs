@@ -13,7 +13,7 @@ public class TowerController : MonoBehaviour
     private List<GameObject> _activeTargets = new List<GameObject>();
     
     // Projectiles
-    private int poolSize = 3;
+    private int poolSize = 2;
     private List<ProjectileController> _activeProjectiles = new List<ProjectileController>();
     private List<ProjectileController> _projectilePool = new List<ProjectileController>();
 
@@ -23,7 +23,7 @@ public class TowerController : MonoBehaviour
     private Vector3 _recycledTargetVector = new Vector3();
     private Vector3 somewhereFarAway = new Vector3(100f, 100f);
 
-    private bool canShoot = true;
+    private bool canShoot = false;
     private float lastShotAt = 0f;
     private float minimumTimeBetweenShotsMillis = 2000f;
 
@@ -38,7 +38,7 @@ public class TowerController : MonoBehaviour
             canShoot = true;
         }
 
-        if (canShoot && _activeTargets.Count > 0)
+        if (canShoot && _activeTargets.Count > 0 && _clock.flow == FlowDirection.forward)
         {
             Shoot();
         }
@@ -65,7 +65,6 @@ public class TowerController : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("Shooting");
         canShoot = false;
         Assert.IsTrue(_projectilePool.Count > 0);
         Assert.IsTrue(_activeTargets.Count > 0);
@@ -77,8 +76,6 @@ public class TowerController : MonoBehaviour
         _recycledTargetVector.y = _activeTargets[0].transform.position.y - this.transform.position.y;
         _recycledTargetVector.z = _activeTargets[0].transform.position.z - this.transform.position.z;
         _recycledTargetVector.Normalize();
-        
-        Debug.Log("About to shoot at _recycledTargetVector: " + _recycledTargetVector);
         
         projectile.Activate(this.transform, _recycledTargetVector, _clock, _myDirection);
         

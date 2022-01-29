@@ -1,9 +1,7 @@
+using System;
+
 // If enum is the first value,
 // there's some kind of error in logic.
-
-using System;
-using UnityEditor.PackageManager;
-
 public enum FlowDirection
 {
   error,

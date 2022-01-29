@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontal, vertical) * moveSpeed;
         targetSpeed = Mathf.InverseLerp(0, moveSpeed, rb.velocity.magnitude) + minTimeSpeed;
         gameClock.SetSpeed(Mathf.MoveTowards(gameClock.flowRate, targetSpeed, timeChangeSpeed * Time.deltaTime));
-        print(gameClock.flowRate);
+        //print(gameClock.flowRate);
     }
 
 }

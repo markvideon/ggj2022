@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8711216805374185506}
   - component: {fileID: 8711216805374185507}
+  - component: {fileID: 3018295774944911626}
   m_Layer: 0
   m_Name: Isometric Diamond
   m_TagString: Untagged
@@ -84,6 +85,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &3018295774944911626
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711216805374185509}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.25}
+      - {x: -0.5, y: 0}
+      - {x: 0, y: -0.25}
+      - {x: 0.5, y: 0}
 --- !u!1 &8711216805875426316
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8711216805875426314}
   - component: {fileID: 8711216805875426317}
+  - component: {fileID: 4143894223870631997}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -133,3 +164,20 @@ MonoBehaviour:
   refireRate: 1
   active: 1
   bullet: {fileID: 2572953227928623701, guid: 7050c72731af1d94da4d101de5dbd77b, type: 3}
+--- !u!114 &4143894223870631997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711216805875426316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95e896423ff0244e8b28a130d294f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  showDebug: 0

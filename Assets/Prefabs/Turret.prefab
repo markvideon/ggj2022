@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8711216805374185506}
   - component: {fileID: 8711216805374185507}
-  - component: {fileID: 3018295774944911626}
   - component: {fileID: 156553383}
+  - component: {fileID: 1120774224331520060}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -86,7 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3018295774944911626
+--- !u!114 &156553383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711216805374185509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f3c9c2a72c06846b2574a92ad77885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSpeed: 0.3
+  sprites:
+  - {fileID: -1030111531, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: 1351137859, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: -1449377675, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: 955066578, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: 1763501712, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: -174002181, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+--- !u!60 &1120774224331520060
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,30 +131,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
---- !u!114 &156553383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8711216805374185509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f3c9c2a72c06846b2574a92ad77885, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSpeed: 0.3
-  sprites:
-  - {fileID: -1030111531, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
-  - {fileID: 1351137859, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
-  - {fileID: -1449377675, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
-  - {fileID: 955066578, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
-  - {fileID: 1763501712, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
-  - {fileID: -174002181, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+    - - {x: -0.047926426, y: 0.37426537}
+      - {x: -0.32037902, y: 0.1201421}
+      - {x: -0.3113978, y: -0.23661053}
+      - {x: -0.48919654, y: -0.38951445}
+      - {x: -0.5012555, y: -0.7387798}
+      - {x: -0.22590828, y: -0.98865104}
+      - {x: 0.22644472, y: -0.9865284}
+      - {x: 0.5, y: -0.7444074}
+      - {x: 0.49384403, y: -0.3840289}
+      - {x: 0.30905485, y: -0.24810565}
+      - {x: 0.3024168, y: 0.124265194}
+      - {x: 0.05351925, y: 0.37426525}
 --- !u!1 &8711216805875426316
 GameObject:
   m_ObjectHideFlags: 0

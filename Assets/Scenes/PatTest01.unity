@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKeyCount: 1
-  nextLevelname: MainMenu
+  nextLevelname: PatTest02
   onLevelComplete:
     m_PersistentCalls:
       m_Calls:

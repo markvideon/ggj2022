@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 3f;
 
     // Bar minimum may not actually be zero for vibes-based reasons
-    [SerializeField] private float _barMinimum;
-    [SerializeField] private float _barMaximum;
+    [SerializeField] private int _barMinimum;
+    [SerializeField] private int _barMaximum;
     [SerializeField] private float _currentBar;
     [SerializeField] private float _rechargeRate;
     [SerializeField] private float _consumptionRate;
@@ -22,35 +22,6 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             OnUseChangeDirection();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        // Move the bar along
-        float rate = 0f;
-
-        if (!_clock.inStasis)
-        {
-            if (_clock.flow == FlowDirection.forward)
-            {
-                rate = _rechargeRate;
-            } else if (_clock.flow == FlowDirection.backward)
-            {
-                rate = _consumptionRate;
-            }
-        }
-
-        float movement = rate * Time.deltaTime;
-        
-        _currentBar = Mathf.Clamp(_currentBar + movement, _barMaximum, _barMaximum);
-
-        // Determine whether to toggle the flow direction
-        float barBefore = _currentBar;
-        
-        if (_clock.flow == FlowDirection.backward && barBefore + movement < _barMinimum)
-        {
-            _clock.toggleDirection();
         }
     }
 
@@ -83,7 +54,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnUseChangeDirection()
     {
-        _clock.toggleDirection();
+        _clock.ToggleDirection();
     }
 
     void Start()
@@ -92,8 +63,12 @@ public class PlayerController : MonoBehaviour
         Assert.IsNotNull(_clock);
         Assert.IsTrue(_barMaximum > 0f);
         Assert.IsTrue(_barMaximum > _barMinimum);
+
+        // todo: All types should have their static field set
+        BufferedState<ProjectileController, ProjectileFrame>.SetBarState(_barMaximum);
+        BufferedState<GameClock, GameClockFrame>.SetBarState(_barMaximum);
     }
-    
+
     public void Update()
     {
         // todo: Handle recharging bar UI here. The state is updated in FixedUpdate.

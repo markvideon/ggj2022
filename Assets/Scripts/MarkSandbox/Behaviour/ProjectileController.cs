@@ -1,24 +1,29 @@
 using System;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class ProjectileController : MonoBehaviour
+public class ProjectileController : BufferedState<ProjectileController, ProjectileFrame>
 {
-  [SerializeField] private float _moveSpeed = 1f;
   [SerializeField] private GameObject _visualisationPrefab;
   private GameObject _visualisationTower;
   private GameObject _visualisationWallBehindPlayer;
   private Vector3 somewhereFarAway = new Vector3(100f, 100f);
   
+  [SerializeField] private float _moveSpeed = 1f;
   private bool _canMove = false;
   private bool _canCollide = true;
   private GameClock _clock;
   private Transform _tower;
   private Vector3 _inDirectionOfPlayer;
   private FlowDirection _myFlow;
+  
+  private FlowDirection _naturalDirection => _clock.flow;
 
   private Vector3 _workingVector = new Vector3();
-
+  private float _historySampleMillis = 500f;
+  private float _timeSinceLastRecord;
+  
   public void Activate(Transform tower, Vector3 inDirectionOfPlayer, GameClock clock, FlowDirection projectileDirection)
   {
     this.transform.name = "Projectile";
@@ -26,10 +31,11 @@ public class ProjectileController : MonoBehaviour
 
     _inDirectionOfPlayer = inDirectionOfPlayer;
     _clock = clock;
+    
     _tower = tower;
     _myFlow = projectileDirection;
     
-    this.transform.position = _tower.transform.position + 1f * _inDirectionOfPlayer;
+    this.transform.position = _tower.transform.position + 0.5f * _inDirectionOfPlayer;
     
     // Needs to start a safe distance away (with current logic) to prevent projectile blowing up tower right away
     _visualisationTower.transform.position = _tower.position;
@@ -41,7 +47,11 @@ public class ProjectileController : MonoBehaviour
 
   private void FixedUpdate()
   {
-    if (_canMove) Move();
+    base.FixedUpdate();
+    if (_canMove)
+    {
+      Move();
+    }
   }
 
   private void Move()
@@ -50,10 +60,16 @@ public class ProjectileController : MonoBehaviour
 
     if (!_clock.inStasis)
     {
-      _workingVector = FlowDirectionUtility.sameFlowDirection(_myFlow, _clock.flow) ? 
-        _inDirectionOfPlayer : 
-        -_inDirectionOfPlayer;
-      this.transform.position += _moveSpeed * Time.deltaTime * _workingVector;
+      if (_clock.flow == FlowDirection.forward)
+      {
+        // Only record frames if player is moving forward, otherwise the buffer would be
+        // cleared and filled with a bunch of empty frames when the player stops moving.
+        _workingVector = FlowDirectionUtility.sameFlowDirection(_naturalDirection, _clock.flow) ? 
+          _inDirectionOfPlayer : 
+          -_inDirectionOfPlayer;
+        
+        this.transform.position += _moveSpeed * Time.deltaTime * _workingVector;
+      }
     }
   }
 
@@ -64,22 +80,34 @@ public class ProjectileController : MonoBehaviour
     var playerComponent = other.GetComponent<PlayerController>();
     var wallComponent = other.GetComponent<WallController>();
     var towerComponent = other.GetComponent<TowerController>();
-    
-    if (playerComponent || wallComponent || towerComponent)
+
+    if (towerComponent)
     {
-      PseudoDestroy();
+      if (FlowDirectionUtility.sameFlowDirection(_naturalDirection, _clock.flow))
+      {
+        // Projectile is being fired or is heading back into the cannon,
+        // In either case, no harm being done
+      }
+      else
+      {
+        // Destructive collision. Tower not expecting to fire
+        PseudoDestroy();
+      }
+    }
+    else
+    {
+      if (playerComponent || wallComponent)
+      {
+        PseudoDestroy();
+      }
     }
   }
-
-  private void OnHit()
-  {
-    PseudoDestroy();
-  }
-
+  
   private void PseudoDestroy()
   {
+    Assert.IsNotNull(_clock);
+    
     ToggleVisualiserNames();
-    Debug.Log("Projectile was pseudo-destroyed.");
     _visualisationTower.transform.position = somewhereFarAway;
     _visualisationWallBehindPlayer.transform.position = somewhereFarAway;
     
@@ -95,9 +123,35 @@ public class ProjectileController : MonoBehaviour
 
   private void Start()
   {
+    base.Start();
     _visualisationTower = Instantiate(_visualisationPrefab, somewhereFarAway, Quaternion.identity);
     _visualisationWallBehindPlayer = Instantiate(_visualisationPrefab, somewhereFarAway, Quaternion.identity);
+    
     ToggleVisualiserNames();
+
+    SetOnRead((frame) =>
+    {
+      _canCollide = frame.canCollide;
+      _canMove = frame.canMove;
+      this.transform.position = frame.currentPosition;
+      _inDirectionOfPlayer = frame.inDirectionOfPlayer;
+      _moveSpeed = frame.moveSpeed;
+      _myFlow = frame.myFlow;
+    });
+    
+    SetOnWrite(() =>
+    {
+      var frame = new ProjectileFrame(
+        canCollide: _canCollide,
+        canMove: _canMove,
+        currentPosition: this.transform.position,
+        inDirectionOfPlayer: new Vector3(_inDirectionOfPlayer.x, _inDirectionOfPlayer.y, _inDirectionOfPlayer.z),
+        moveSpeed: _moveSpeed,
+        myFlow: _myFlow
+      );
+
+      Record(frame);
+    });
   }
 
   private void ToggleVisualiserNames()

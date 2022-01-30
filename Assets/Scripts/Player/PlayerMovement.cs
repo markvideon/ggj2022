@@ -75,12 +75,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _activeMenu = _losePanel;
         _losePanel.ShowMenu();
+        Destroy(FindObjectOfType<MusicController>().gameObject);
     }
     
     public void OnWin()
     {
         _activeMenu = _winPanel;
         _winPanel.ShowMenu();
+        Destroy(FindObjectOfType<MusicController>().gameObject);
     }
 
     public void RegisterLoseMenu(Lose lose)

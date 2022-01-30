@@ -32,4 +32,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PatTest06.unity
     guid: befe79a326bcc994da9a2a79dc0b7e1c
+  - enabled: 1
+    path: Assets/Scenes/PatTest07.unity
+    guid: 85b04385076e1104d90769543e128afd
+  - enabled: 1
+    path: Assets/Scenes/PatTest08.unity
+    guid: 7b22c1933c460424d99a4f5b88092928
+  - enabled: 1
+    path: Assets/Scenes/PatTest09.unity
+    guid: 13e10bfccd0e42f49ac000bee9761f66
+  - enabled: 1
+    path: Assets/Scenes/PatTest10.unity
+    guid: 73c0107c771fdeb48baa30f25492e484
+  - enabled: 1
+    path: Assets/Scenes/PatTest11.unity
+    guid: 2ee99c457b38d15428b11858b35da4c4
+  - enabled: 1
+    path: Assets/Scenes/PatTest12.unity
+    guid: fe7b1eb029e358f449d1d6ec5dac1932
+  - enabled: 1
+    path: Assets/Scenes/PatTest13.unity
+    guid: d62dcf9e9e5d75e4a9f11df9bcc5468f
+  - enabled: 1
+    path: Assets/Scenes/PatTest14.unity
+    guid: 80b61ee9699fc96438f92c77f125eea8
+  - enabled: 1
+    path: Assets/Scenes/PatTest15.unity
+    guid: e6771faf724a7da448e60dd32efce3cf
   m_configObjects: {}

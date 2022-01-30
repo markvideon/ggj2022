@@ -27,6 +27,13 @@ public class GameClock : BufferedState<GameClock, GameClockFrame>
     public float timeSinceChange { get { return _timeSinceChange; } }
     private float _timeSinceChange = 0f;
 
+    private Action _onChangeFlow;
+
+    public void AddToOnChangeFlow(Action nextAction)
+    {
+        _onChangeFlow += nextAction;
+    }
+
     public void FixedUpdate()
     {
         base.FixedUpdate();
@@ -50,12 +57,17 @@ public class GameClock : BufferedState<GameClock, GameClockFrame>
         }
     }
 
+    public void RemoveFromOnChangeFlow(Action removedAction)
+    {
+        _onChangeFlow -= removedAction;
+    }
+
     public void SetDirection(FlowDirection next)
     {
         _flow = next;
         _timeSinceChange = 0f;
-        //_historyVisualiser.SetText("Bar remaining: " + percentageBufferUtilised);
         if (!inStasis) _visualiser.SetText("Global direction: " + FlowDirectionUtility.directionAsString(_flow));
+        _onChangeFlow?.Invoke();
     }
 
     public void SetSpeed(float input)

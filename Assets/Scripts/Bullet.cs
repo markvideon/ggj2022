@@ -27,10 +27,12 @@ public class Bullet : BufferedState<Bullet, BulletFrame>
     Vector2 storedVelocity;
     int bounces;
     bool spawnTimeSet;
+    SFX sfx;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sfx = GetComponent<SFX>();
     }
 
     private void Start()
@@ -40,7 +42,11 @@ public class Bullet : BufferedState<Bullet, BulletFrame>
         {
             transform.position = Frame.position;
             transform.rotation = Frame.rotation;
-            if (gameClock.accumulatedTime <= Frame.spawnedTime) Destroy(gameObject);
+            if (gameClock.accumulatedTime <= Frame.spawnedTime)
+            {
+                sfx.Play(false);
+                Destroy(gameObject, sfx.source.clip.length);
+            }
         });
         SetOnWrite(() =>
         {

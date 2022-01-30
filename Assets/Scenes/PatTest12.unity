@@ -5514,7 +5514,8 @@ GameObject:
   - component: {fileID: 1272964554}
   - component: {fileID: 1272964556}
   - component: {fileID: 1272964555}
-  m_Layer: 0
+  - component: {fileID: 1272964557}
+  m_Layer: 7
   m_Name: HoleTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6213,6 +6214,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1272964557
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272964553}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &1350102931
 PrefabInstance:
   m_ObjectHideFlags: 0

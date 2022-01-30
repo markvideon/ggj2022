@@ -10,9 +10,11 @@ public class PlayerMovement : MonoBehaviour
     float horizontal, vertical;
     GameClock gameClock;
     float targetSpeed;
+
+    [SerializeField] private Menu _activeMenu;
     private Pause _pausePanel;
-    [SerializeField] private Win _winPanel;
-    [SerializeField] private Lose _losePanel;
+    private Win _winPanel;
+    private Lose _losePanel;
 
     private void Awake()
     {
@@ -34,7 +36,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (ctx.performed)
         {
-            _pausePanel.ShowPause();
+            _activeMenu = _pausePanel;
+            _pausePanel.ShowMenu();
+        }
+    }
+
+    public void OnCancelUI(InputAction.CallbackContext ctx)
+    {
+        // List of cancelable menus, e.g. pause
+        if (_activeMenu == _pausePanel)
+        {
+            _activeMenu.HideMenu();
+            _activeMenu = null;
         }
     }
 
@@ -50,17 +63,19 @@ public class PlayerMovement : MonoBehaviour
     
     public void Pause()
     {
-        _pausePanel.ShowPause();
+        _pausePanel.ShowMenu();
     }
 
     public void OnLose()
     {
-        _losePanel.ShowLose();
+        _activeMenu = _losePanel;
+        _losePanel.ShowMenu();
     }
     
     public void OnWin()
     {
-        _winPanel.ShowWin();
+        _activeMenu = _winPanel;
+        _winPanel.ShowMenu();
     }
 
     public void RegisterLoseMenu(Lose lose)

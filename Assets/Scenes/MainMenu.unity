@@ -1240,6 +1240,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 968133980344707944, guid: 8a0be4d6e666d454191f0f584e94d5a9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 968133980344707944, guid: 8a0be4d6e666d454191f0f584e94d5a9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Menu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1206296328770958470, guid: 8a0be4d6e666d454191f0f584e94d5a9, type: 3}
       propertyPath: firstSelected
       value: 

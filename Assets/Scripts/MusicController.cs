@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine; 
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class MusicController : MonoBehaviour
 {
@@ -17,10 +18,22 @@ public class MusicController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         gameClock = FindObjectOfType<GameClock>();
         gameClock.AddToOnChangeFlow(ChangeDirection);
+        ChangeDirection();
+    }
+
+    void OnSceneUnloaded(Scene scene)
+    {
+        gameClock.RemoveFromOnChangeFlow(ChangeDirection);
     }
 
     private void OnDestroy()

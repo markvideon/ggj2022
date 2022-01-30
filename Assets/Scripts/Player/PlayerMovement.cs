@@ -43,8 +43,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCancelUI(InputAction.CallbackContext ctx)
     {
-        _activeMenu.HideMenu();
-        _activeMenu = null;
+        // List of cancelable menus, e.g. pause
+        if (_activeMenu == _pausePanel)
+        {
+            _activeMenu.HideMenu();
+            _activeMenu = null;
+        }
     }
 
     public void OnTimeSwitch(InputAction.CallbackContext ctx)

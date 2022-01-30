@@ -47,8 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minPitch: 0
+  forwardSFX: {fileID: 0}
+  backwardSFX: {fileID: 0}
   forwardMusic: {fileID: 5348161269642002064}
   backwardMusic: {fileID: 5348161269642002063}
+  SFXSource: {fileID: 0}
 --- !u!82 &5348161269642002064
 AudioSource:
   m_ObjectHideFlags: 0
@@ -155,7 +158,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 93be1a4960860e0408f9996524872435, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f0ea04dd521e18843b183ef728a8b7d2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

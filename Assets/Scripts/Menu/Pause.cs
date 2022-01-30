@@ -24,4 +24,10 @@ public class Pause : Menu
       FindFields();
     };
   }
+
+  public override void HideMenu()
+  {
+    base.HideMenu();
+    if (input != null && input.enabled) input.SwitchCurrentActionMap("Gameplay");
+  }
 }

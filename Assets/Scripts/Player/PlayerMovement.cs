@@ -48,11 +48,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCancelUI(InputAction.CallbackContext ctx)
     {
-        // List of cancelable menus, e.g. pause
-        if (_activeMenu == _pausePanel)
+        if (ctx.performed)
         {
-            _activeMenu.HideMenu();
-            _activeMenu = null;
+            // List of cancelable menus, e.g. pause
+            if (_activeMenu == _pausePanel)
+            {
+                _activeMenu.HideMenu();
+                _activeMenu = null;
+            }
         }
     }
 

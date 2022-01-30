@@ -28,7 +28,7 @@ public class GameClock : BufferedState<GameClock, GameClockFrame>
     private float _timeSinceChange = 0f;
 
     private Action _onChangeFlow;
-
+    
     public void AddToOnChangeFlow(Action nextAction)
     {
         _onChangeFlow += nextAction;
@@ -90,6 +90,7 @@ public class GameClock : BufferedState<GameClock, GameClockFrame>
         _visualiser = FindObjectOfType<SandboxFlowVisualiser>();
         _historyVisualiser = FindObjectOfType<GameClockHistoryVisualiser>();
         Assert.IsNotNull(_visualiser);
+        
         //Assert.IsNotNull(_historyVisualiser);
         
         // Initially, GameClock is zero as the player does not move
@@ -123,7 +124,6 @@ public class GameClock : BufferedState<GameClock, GameClockFrame>
         if (_flow == FlowDirection.forward)
         { 
             SetDirection(FlowDirection.backward);
-            _flow = FlowDirection.backward;
         }
         else if (_flow == FlowDirection.backward)
         {

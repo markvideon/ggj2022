@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontal, vertical;
     GameClock gameClock;
     float targetSpeed;
+    private Pause _pausePanel;
 
     private void Awake()
     {
@@ -19,22 +20,40 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         gameClock = FindObjectOfType<GameClock>();
-        //BufferedState<GameClock, GameClockFrame>.SetBarState(100000000);
+        _pausePanel = FindObjectOfType<Pause>();
     }
 
     public void OnHorizontalInput(InputAction.CallbackContext ctx)
     {
         horizontal = ctx.ReadValue<float>();
     }
-
-    public void OnVerticalInput(InputAction.CallbackContext ctx)
+    
+    public void OnPause(InputAction.CallbackContext ctx)
     {
-        vertical = ctx.ReadValue<float>();
+        if (ctx.performed)
+        {
+            _pausePanel.ShowPause();
+        }
     }
 
     public void OnTimeSwitch(InputAction.CallbackContext ctx)
     {
         gameClock.ToggleDirection();
+    }
+    
+    public void OnVerticalInput(InputAction.CallbackContext ctx)
+    {
+        vertical = ctx.ReadValue<float>();
+    }
+    
+    public void Pause()
+    {
+        _pausePanel.ShowPause();
+    }
+
+    public void RegisterPauseMenu(Pause pause)
+    {
+        this._pausePanel = pause;
     }
 
     private void FixedUpdate()

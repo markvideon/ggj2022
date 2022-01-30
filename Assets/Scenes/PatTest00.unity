@@ -5807,10 +5807,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 248057135, guid: 60d5239480933ef43b4d936ace0635ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 382622501, guid: 60d5239480933ef43b4d936ace0635ae, type: 3}
       propertyPath: onLevelComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 750042155}
+    - target: {fileID: 646718870, guid: 60d5239480933ef43b4d936ace0635ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5086679756257074344, guid: 60d5239480933ef43b4d936ace0635ae, type: 3}
       propertyPath: m_Name
       value: Player

@@ -26,10 +26,7 @@ public class Menu : MonoBehaviour
 
   public virtual void ShowMenu()
   {
-    Assert.IsNotNull(input);
-    Assert.IsNotNull(child);
-    Assert.IsNotNull(player);
-    input.SwitchCurrentActionMap("UI");
+    if (input !=null && input.enabled) input.SwitchCurrentActionMap("UI");
     
     if (player)
     {
@@ -42,14 +39,11 @@ public class Menu : MonoBehaviour
       Debug.Log("Player was not found.");
     }
     
-    child.SetActive(true);
+    child?.SetActive(true);
   }
 
   public virtual void HideMenu()
   {
-    //Assert.IsNotNull(input);
-    //Assert.IsNotNull(child);
-    input.SwitchCurrentActionMap("Gameplay");
-    child.SetActive(false);
+    child?.SetActive(false);
   }
 }

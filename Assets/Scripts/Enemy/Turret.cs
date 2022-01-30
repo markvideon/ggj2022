@@ -26,6 +26,7 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
+        if (!player) return;
         if (gameClock.flow == FlowDirection.backward) return;
         if (active)
         {

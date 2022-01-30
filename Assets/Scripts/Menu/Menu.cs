@@ -47,8 +47,8 @@ public class Menu : MonoBehaviour
 
   public virtual void HideMenu()
   {
-    Assert.IsNotNull(input);
-    Assert.IsNotNull(child);
+    //Assert.IsNotNull(input);
+    //Assert.IsNotNull(child);
     input.SwitchCurrentActionMap("Gameplay");
     child.SetActive(false);
   }

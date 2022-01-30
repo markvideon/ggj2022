@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
         _pausePanel = FindObjectOfType<Pause>();
     }
 
+    private void OnDestroy()
+    {
+        gameClock.SetSpeed(0f);
+    }
+
     public void OnHorizontalInput(InputAction.CallbackContext ctx)
     {
         horizontal = ctx.ReadValue<float>();

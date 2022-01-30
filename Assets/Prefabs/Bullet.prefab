@@ -201,7 +201,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3ac87bc000425ce4fa488e1fe4670d98, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 29f6a10fdaa2e7a4f892dfb54da0eec6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -304,6 +304,6 @@ MonoBehaviour:
   maxPitch: 1.1
   minVol: 0.9
   maxVol: 1
-  forwardClip: {fileID: 8300000, guid: 3ac87bc000425ce4fa488e1fe4670d98, type: 3}
-  backwardsClip: {fileID: 0}
+  forwardClip: {fileID: 8300000, guid: 29f6a10fdaa2e7a4f892dfb54da0eec6, type: 3}
+  backwardsClip: {fileID: 8300000, guid: faeeb4528778b234fab7a94dd2b3abd3, type: 3}
   source: {fileID: 1533238466936993503}

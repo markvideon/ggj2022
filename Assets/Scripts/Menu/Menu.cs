@@ -5,43 +5,36 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Pause : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-  private PlayerInput input;
-  private PlayerMovement player;
-  private GameObject child;
+  [HideInInspector] public PlayerInput input;
+  [HideInInspector] public PlayerMovement player;
+  [HideInInspector] public GameObject child;
 
   [SerializeField] private GameObject firstSelected;
   
-  private void FindFields()
+  public void FindFields()
   {
     input = FindObjectOfType<PlayerInput>();
     player = FindObjectOfType<PlayerMovement>();
-    
-    player?.RegisterPauseMenu(this);
   }
   
-  private void Start()
+  public void Start()
   {
     child = this.transform.GetChild(0).gameObject;
-
-    FindFields();
-    
-    SceneManager.sceneLoaded += (arg0, scene) =>
-    {
-      FindFields();
-    };
   }
 
-  public void ShowPause()
+  public void ShowMenu()
   {
     Assert.IsNotNull(input);
     Assert.IsNotNull(child);
+    Assert.IsNotNull(player);
     input.SwitchCurrentActionMap("UI");
     
     if (player)
     {
       Debug.Log("Player was found, setting firstSelected.");
+      Debug.Log("Setting first selected");
       EventSystem.current.SetSelectedGameObject(firstSelected);
     }
     else
@@ -52,7 +45,7 @@ public class Pause : MonoBehaviour
     child.SetActive(true);
   }
 
-  public void HidePause()
+  public void HideMenu()
   {
     Assert.IsNotNull(input);
     Assert.IsNotNull(child);

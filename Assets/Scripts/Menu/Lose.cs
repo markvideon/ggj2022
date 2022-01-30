@@ -19,14 +19,4 @@ public class Lose : Menu
       FindFields();
     };
   }
-
-  public void ShowLose()
-  {
-    base.ShowMenu();
-  }
-
-  public void HideLose()
-  {
-    base.HideMenu();
-  }
 }

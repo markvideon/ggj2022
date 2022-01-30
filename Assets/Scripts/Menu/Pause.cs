@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Pause : Menu
 {
-  private void FindFields()
+  public override void FindFields()
   {
     base.FindFields();
     player?.RegisterPauseMenu(this);
@@ -23,15 +23,5 @@ public class Pause : Menu
     {
       FindFields();
     };
-  }
-
-  public void ShowPause()
-  {
-    base.ShowMenu();
-  }
-
-  public void HidePause()
-  {
-    HideMenu();
   }
 }

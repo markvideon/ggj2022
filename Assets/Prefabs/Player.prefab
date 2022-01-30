@@ -849,6 +849,7 @@ MonoBehaviour:
   moveSpeed: 5
   minTimeSpeed: 0.1
   timeChangeSpeed: 3
+  _activeMenu: {fileID: 0}
 --- !u!114 &5086679756257074348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +948,19 @@ MonoBehaviour:
     m_ActionId: 19befeb0-2a7b-46b4-aebd-b3591275ce6a
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5086679756257074345}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnCancelUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2f1ca6c1-af9d-49b6-ac77-cba73692ce92
     m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:

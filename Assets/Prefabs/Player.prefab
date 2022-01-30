@@ -536,8 +536,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5086679755497870703}
   - component: {fileID: 5086679755497870672}
+  - component: {fileID: 2035220116}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -599,8 +600,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.42074585, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 650614429, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -610,6 +611,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2035220116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086679755497870702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4db0cde3d700634e89c974c8835b236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSpeed: 0.15
+  upSprites:
+  - {fileID: -1070656936, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: -1367997498, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: -391435159, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: -1157955321, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  downSprites:
+  - {fileID: 650614429, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: 2140593102, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: 101810237, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: 39528925, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  rightSprites:
+  - {fileID: 294599520, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: -880490584, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: -1911381225, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: 219004183, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  leftSprites:
+  - {fileID: 361695879, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: 450038616, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: 247018293, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  - {fileID: -842662178, guid: 4a8d783380f3b064a9c9a6a6a1756eb4, type: 3}
+  direction: 0
 --- !u!1 &5086679756257074344
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +870,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.32
 --- !u!114 &1047698027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95e896423ff0244e8b28a130d294f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 1
   OnDeath:
     m_PersistentCalls:
       m_Calls:

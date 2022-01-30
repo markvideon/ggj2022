@@ -93,7 +93,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5144888720261336306}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18f3c9c2a72c06846b2574a92ad77885, type: 3}
   m_Name: 
@@ -192,6 +192,7 @@ MonoBehaviour:
   barrelPosition: {fileID: 5144888720261336309}
   refireRate: 1
   active: 0
+  fireInstantly: 0
   bullet: {fileID: 2572953227928623701, guid: 7050c72731af1d94da4d101de5dbd77b, type: 3}
 --- !u!114 &432404220213247210
 MonoBehaviour:

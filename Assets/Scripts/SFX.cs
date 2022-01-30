@@ -26,4 +26,11 @@ public class SFX : MonoBehaviour
         source.volume = Random.Range(minVol, maxVol);
         source.PlayOneShot(forward ? forwardClip : backwardsClip);
     }
+
+    public void PlayAndDestroy(bool forward)
+    {
+        Play(forward);
+        Destroy(gameObject, forwardClip.length);
+    }
+
 }

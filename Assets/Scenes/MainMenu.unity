@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 27689844}
   - component: {fileID: 27689843}
   - component: {fileID: 27689847}
+  - component: {fileID: 27689848}
   m_Layer: 5
   m_Name: Menu Canvas
   m_TagString: Untagged
@@ -238,6 +239,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d432ebb039051b34c841702dc7010d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &27689848
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27689842}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bcee2140aff7b3e4b9109684e3571905, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &400958373
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +421,10 @@ PrefabInstance:
     - target: {fileID: 1643422980969204420, guid: f4526049856c60b4a8eb70f0913d135b, type: 3}
       propertyPath: m_Name
       value: Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695617568396220832, guid: f4526049856c60b4a8eb70f0913d135b, type: 3}
+      propertyPath: firstSelected
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7959694537015351641, guid: f4526049856c60b4a8eb70f0913d135b, type: 3}
       propertyPath: m_Pivot.x
@@ -985,9 +1086,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4547235229918976692, guid: df28291afa0174e4ebc013aac8620935, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058969173829656460, guid: df28291afa0174e4ebc013aac8620935, type: 3}
+      propertyPath: m_text
+      value: SUCCESS! YOU ESCAPED WITH THE TIME CLOAK!
+      objectReference: {fileID: 0}
     - target: {fileID: 5937582547798052370, guid: df28291afa0174e4ebc013aac8620935, type: 3}
       propertyPath: m_Name
       value: Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450308340218459828, guid: df28291afa0174e4ebc013aac8620935, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 7445371104324358400, guid: df28291afa0174e4ebc013aac8620935, type: 3}
       propertyPath: m_Pivot.x

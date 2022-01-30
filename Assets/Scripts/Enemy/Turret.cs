@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour
 {
     public Transform barrelPosition;
     public float refireRate;
-    public bool active;
+    public bool active, fireInstantly;
     public GameObject bullet;
     Transform player;
     float refireRateTimer;
@@ -22,6 +22,7 @@ public class Turret : MonoBehaviour
     {
         player = FindObjectOfType<PlayerMovement>().transform;
         gameClock = FindObjectOfType<GameClock>();
+        if (fireInstantly) refireRateTimer = refireRate;
     }
 
     private void Update()

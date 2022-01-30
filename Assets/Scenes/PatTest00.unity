@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 8711216805875426317, guid: a454913a76a12c94791259268c7ad0de, type: 3}
+      propertyPath: fireInstantly
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a454913a76a12c94791259268c7ad0de, type: 3}
 --- !u!1 &248057135

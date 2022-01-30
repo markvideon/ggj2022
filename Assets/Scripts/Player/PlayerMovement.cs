@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     GameClock gameClock;
     float targetSpeed;
     private Pause _pausePanel;
+    [SerializeField] private Win _winPanel;
+    [SerializeField] private Lose _losePanel;
 
     private void Awake()
     {
@@ -51,9 +53,29 @@ public class PlayerMovement : MonoBehaviour
         _pausePanel.ShowPause();
     }
 
+    public void OnLose()
+    {
+        _losePanel.ShowLose();
+    }
+    
+    public void OnWin()
+    {
+        _winPanel.ShowWin();
+    }
+
+    public void RegisterLoseMenu(Lose lose)
+    {
+        this._losePanel = lose;
+    }
+    
     public void RegisterPauseMenu(Pause pause)
     {
         this._pausePanel = pause;
+    }
+    
+    public void RegisterWinMenu(Win win)
+    {
+        this._winPanel = win;
     }
 
     private void FixedUpdate()

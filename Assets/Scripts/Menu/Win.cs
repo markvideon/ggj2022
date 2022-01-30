@@ -19,14 +19,4 @@ public class Win : Menu
     };
     
   }
-
-  public void ShowWin()
-  {
-    base.ShowMenu();
-  }
-
-  public void HideWin()
-  {
-    base.HideMenu();
-  }
 }

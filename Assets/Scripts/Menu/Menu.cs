@@ -13,7 +13,7 @@ public class Menu : MonoBehaviour
 
   [SerializeField] private GameObject firstSelected;
   
-  public void FindFields()
+  public virtual void FindFields()
   {
     input = FindObjectOfType<PlayerInput>();
     player = FindObjectOfType<PlayerMovement>();
@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour
     child = this.transform.GetChild(0).gameObject;
   }
 
-  public void ShowMenu()
+  public virtual void ShowMenu()
   {
     Assert.IsNotNull(input);
     Assert.IsNotNull(child);
@@ -45,7 +45,7 @@ public class Menu : MonoBehaviour
     child.SetActive(true);
   }
 
-  public void HideMenu()
+  public virtual void HideMenu()
   {
     Assert.IsNotNull(input);
     Assert.IsNotNull(child);

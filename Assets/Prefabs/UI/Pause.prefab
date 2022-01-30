@@ -116,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42b1a50e310498dafa9cadf949fa49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 0}
+  player: {fileID: 0}
+  child: {fileID: 0}
   firstSelected: {fileID: 0}
 --- !u!114 &4029285355223214780
 MonoBehaviour:
@@ -497,11 +500,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 732379773864563694, guid: 8ddfed4baf0af30488f7aabca013548a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HidePause
+      value: HideMenu
       objectReference: {fileID: 0}
     - target: {fileID: 732379773864563694, guid: 8ddfed4baf0af30488f7aabca013548a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Pause, Assembly-CSharp
+      value: Menu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 732379773864563694, guid: 8ddfed4baf0af30488f7aabca013548a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

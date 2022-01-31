@@ -16,9 +16,12 @@ public class PlayerMovement : MonoBehaviour
     private Win _winPanel;
     private Lose _losePanel;
 
+    private MusicController _musicController;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        _musicController = FindObjectOfType<MusicController>();
     }
 
     private void Start()
@@ -78,14 +81,15 @@ public class PlayerMovement : MonoBehaviour
     {
         _activeMenu = _losePanel;
         _losePanel.ShowMenu();
-        Destroy(FindObjectOfType<MusicController>().gameObject);
+        if (_musicController) Destroy(_musicController.gameObject);
+
     }
     
     public void OnWin()
     {
         _activeMenu = _winPanel;
         _winPanel.ShowMenu();
-        Destroy(FindObjectOfType<MusicController>().gameObject);
+        if (_musicController) Destroy(_musicController.gameObject);
     }
 
     public void RegisterLoseMenu(Lose lose)

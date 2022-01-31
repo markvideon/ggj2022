@@ -11,7 +11,7 @@ public class Menu : MonoBehaviour
   [HideInInspector] public PlayerMovement player;
   [HideInInspector] public GameObject child;
 
-  [SerializeField] private GameObject firstSelected;
+  [SerializeField] protected GameObject firstSelected;
   
   public virtual void FindFields()
   {
@@ -19,26 +19,18 @@ public class Menu : MonoBehaviour
     player = FindObjectOfType<PlayerMovement>();
   }
   
-  public void Start()
+  public virtual void Start()
   {
     child = this.transform.GetChild(0).gameObject;
   }
 
   public virtual void ShowMenu()
   {
-    if (input !=null && input.enabled) input.SwitchCurrentActionMap("UI");
+    if (input != null && input.enabled) input.SwitchCurrentActionMap("UI");
     
-    if (player)
-    {
-      Debug.Log("Player was found, setting firstSelected.");
-      Debug.Log("Setting first selected");
-      EventSystem.current.SetSelectedGameObject(firstSelected);
-    }
-    else
-    {
-      Debug.Log("Player was not found.");
-    }
-    
+    EventSystem.current.SetSelectedGameObject(firstSelected);
+
+    Assert.IsNotNull(child);
     child?.SetActive(true);
   }
 

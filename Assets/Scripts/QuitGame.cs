@@ -17,8 +17,9 @@ public class QuitGame : Menu
     // Pseudo-navigation stack of 1
     public void PushMenu(Menu previousMenu)
     {
-        base.ShowMenu();
         _previousMenu = previousMenu;
+        _previousMenu.HideMenu();
+        base.ShowMenu();
     }
 
     public void PopMenu()

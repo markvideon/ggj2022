@@ -26,7 +26,7 @@ public class Menu : MonoBehaviour
 
   public virtual void ShowMenu()
   {
-    if (input !=null && input.enabled) input.SwitchCurrentActionMap("UI");
+    if (input != null && input.enabled) input.SwitchCurrentActionMap("UI");
     
     EventSystem.current.SetSelectedGameObject(firstSelected);
 

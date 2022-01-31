@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9171453927893713570}
+  - component: {fileID: 6273249049867421826}
   m_Layer: 0
   m_Name: PanelParent
   m_TagString: Untagged
@@ -356,7 +357,6 @@ GameObject:
   - component: {fileID: 6841894818681264489}
   - component: {fileID: 5350803801810797117}
   - component: {fileID: 3146041686159488367}
-  - component: {fileID: 1753966958982015950}
   - component: {fileID: 3273828358931975198}
   m_Layer: 5
   m_Name: Win
@@ -475,22 +475,6 @@ MonoBehaviour:
   player: {fileID: 0}
   child: {fileID: 0}
   firstSelected: {fileID: 5327608508509647330}
---- !u!114 &1753966958982015950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5937582547798052370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28cd4c4af163f5747b634468621f8d65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: {fileID: 0}
-  player: {fileID: 0}
-  child: {fileID: 0}
-  firstSelected: {fileID: 0}
 --- !u!114 &3273828358931975198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,7 +756,7 @@ PrefabInstance:
     - target: {fileID: 732379773864563694, guid: 8ddfed4baf0af30488f7aabca013548a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1753966958982015950}
+      objectReference: {fileID: 0}
     - target: {fileID: 732379773864563694, guid: 8ddfed4baf0af30488f7aabca013548a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

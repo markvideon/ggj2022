@@ -12,7 +12,6 @@ public class TowerSpotter : MonoBehaviour
         
         if (playerComponent != null)
         {
-            Debug.Log("Player spotted.");
             _parent.SpotTargetIfNew(playerComponent.gameObject);
         }
     }
@@ -23,7 +22,6 @@ public class TowerSpotter : MonoBehaviour
         
         if (playerComponent != null)
         {
-            Debug.Log("Player lost.");
             _parent.RemoveTargetIfLost(playerComponent.gameObject);
         }
     }

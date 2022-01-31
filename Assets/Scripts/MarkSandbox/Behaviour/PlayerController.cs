@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
         if (projectileComponent)
         {
-            Debug.Log("player hit");
+            // Debug.Log("player hit");
         }
     }
     

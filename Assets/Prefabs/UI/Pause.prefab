@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4734894906420955204}
   - component: {fileID: 2097183431600218674}
   - component: {fileID: 1206296328770958470}
-  - component: {fileID: 4029285355223214780}
   - component: {fileID: 3126654956144810666}
   - component: {fileID: 6317779874761864269}
   m_Layer: 5
@@ -121,22 +120,6 @@ MonoBehaviour:
   player: {fileID: 0}
   child: {fileID: 0}
   firstSelected: {fileID: 968133980344707926}
---- !u!114 &4029285355223214780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2188851239820954969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28cd4c4af163f5747b634468621f8d65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: {fileID: 0}
-  player: {fileID: 0}
-  child: {fileID: 0}
-  firstSelected: {fileID: 0}
 --- !u!114 &3126654956144810666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,7 +664,7 @@ PrefabInstance:
     - target: {fileID: 732379773864563694, guid: 8ddfed4baf0af30488f7aabca013548a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4029285355223214780}
+      objectReference: {fileID: 0}
     - target: {fileID: 732379773864563694, guid: 8ddfed4baf0af30488f7aabca013548a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

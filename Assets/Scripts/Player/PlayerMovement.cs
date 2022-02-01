@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     GameClock gameClock;
     float targetSpeed;
 
-    [SerializeField] private Menu _activeMenu;
     private Pause _pausePanel;
     private Win _winPanel;
     private Lose _losePanel;
@@ -42,10 +41,9 @@ public class PlayerMovement : MonoBehaviour
     
     public void OnPause(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && _pausePanel.canPause)
         {
-            _activeMenu = _pausePanel;
-            _pausePanel.ShowMenu();
+            Navigator.PushMenu(_pausePanel);
         }
     }
 
@@ -53,12 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (ctx.performed)
         {
-            // List of cancelable menus, e.g. pause
-            if (_activeMenu == _pausePanel)
-            {
-                _activeMenu.HideMenu();
-                _activeMenu = null;
-            }
+            Navigator.PopMenu();
         }
     }
 
@@ -74,21 +67,19 @@ public class PlayerMovement : MonoBehaviour
     
     public void Pause()
     {
-        _pausePanel.ShowMenu();
+        Navigator.PushMenu(_pausePanel);
     }
 
     public void OnLose()
     {
-        _activeMenu = _losePanel;
-        _losePanel.ShowMenu();
+        Navigator.PushMenu(_losePanel);
         if (_musicController) Destroy(_musicController.gameObject);
 
     }
     
     public void OnWin()
     {
-        _activeMenu = _winPanel;
-        _winPanel.ShowMenu();
+        Navigator.PushMenu(_winPanel);
         if (_musicController) Destroy(_musicController.gameObject);
     }
 

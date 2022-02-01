@@ -7,6 +7,24 @@ using UnityEngine.SceneManagement;
 
 public class Pause : Menu
 {
+  // Attempt to avoid collisions with input maps. 
+  // Escape (go back) and Pause could be mapped to the same button.
+  public bool canPause
+  {
+    get
+    {
+      return (Navigator.count >= 0) && !Navigator.containsPage(this);
+    }
+  }
+  
+  public bool canUnpause
+  {
+    get
+    {
+      return (Navigator.count > 0) && Navigator.lastPage == this;
+    }
+  }
+  
   public override void FindFields()
   {
     base.FindFields();
@@ -23,11 +41,5 @@ public class Pause : Menu
     {
       FindFields();
     };
-  }
-
-  public override void HideMenu()
-  {
-    base.HideMenu();
-    if (input != null && input.enabled) input.SwitchCurrentActionMap("Gameplay");
   }
 }

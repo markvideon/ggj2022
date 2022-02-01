@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
@@ -7,15 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-  [HideInInspector] public PlayerInput input;
   [HideInInspector] public PlayerMovement player;
   [HideInInspector] public GameObject child;
 
   [SerializeField] protected GameObject firstSelected;
-  
+
   public virtual void FindFields()
   {
-    input = FindObjectOfType<PlayerInput>();
     player = FindObjectOfType<PlayerMovement>();
   }
   
@@ -26,8 +25,6 @@ public class Menu : MonoBehaviour
 
   public virtual void ShowMenu()
   {
-    if (input != null && input.enabled) input.SwitchCurrentActionMap("UI");
-    
     EventSystem.current.SetSelectedGameObject(firstSelected);
 
     Assert.IsNotNull(child);

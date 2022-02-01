@@ -88,6 +88,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "1D Axis",
+                    "id": "e2b1f40b-d269-4651-87d7-883c8db49b70",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "7946d989-4aa8-44b4-b137-6dd54552aac7",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ff78f83d-cdf1-4e27-aeb9-9f10e2dd7ee3",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "621a0e1e-c3f6-4e2a-923c-658095603d29",
                     "path": "<Gamepad>/leftStick/x",
@@ -124,6 +157,39 @@
                     "name": "positive",
                     "id": "5b50413a-4cd9-4262-b6a2-3887fb656fa9",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "7a01d3df-a1ac-45e4-8869-b90edb77b6a2",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horizontal",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "2fa847fc-bec1-4ce2-ae29-1ee25288be04",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "873c6c10-5165-4213-aff6-465e7aa931ba",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

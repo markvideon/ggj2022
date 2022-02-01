@@ -1,3 +1,4 @@
+using System;
 using UnityEngine.EventSystems;
 
 public class MainMenu : Menu
@@ -6,5 +7,12 @@ public class MainMenu : Menu
   {
     base.Start();
     EventSystem.current.SetSelectedGameObject(firstSelected);
+    
+    Navigator.PushMenu(this);
+  }
+
+  public void OnDestroy()
+  {
+    Navigator.clear();
   }
 }

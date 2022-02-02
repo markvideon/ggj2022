@@ -1123,7 +1123,6 @@ MonoBehaviour:
   moveSpeed: 5
   minTimeSpeed: 0.1
   timeChangeSpeed: 3
-  _activeMenu: {fileID: 0}
 --- !u!114 &5086679756257074348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,7 +1265,7 @@ MonoBehaviour:
     m_ActionId: 2535d80e-6040-438f-bf41-c1b5510df17d
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

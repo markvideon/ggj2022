@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 862793734483927651}
   - component: {fileID: 1437036599571266516}
   - component: {fileID: 1595517287445885704}
-  - component: {fileID: 4739331290217425194}
   - component: {fileID: 7153347515588396459}
   m_Layer: 5
   m_Name: Lose
@@ -116,22 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d6e3ba70664c9287f26e5079638884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
   player: {fileID: 0}
   child: {fileID: 0}
   firstSelected: {fileID: 1805955704582525305}
---- !u!114 &4739331290217425194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643422980969204420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f06584736213f4b9e99ac386139c2a7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7153347515588396459
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -286,7 +286,7 @@
       "url": "https://packages.unity.com"
     },
     "supportingcast.discord": {
-      "version": "git@bitbucket.org:supportingcast/unity_discord.git",
+      "version": "https://bitbucket.org/supportingcast/unity_discord.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},

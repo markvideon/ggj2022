@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1905527772450293958}
   - component: {fileID: 1905527772450294008}
   - component: {fileID: 1905527772450294009}
+  - component: {fileID: 109701337}
   m_Layer: 0
   m_Name: Hexagon Flat-Top
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -169041946, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  m_Sprite: {fileID: -46143563, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,6 +102,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.44
+--- !u!114 &109701337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905527772450293959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7385094a63b0cf242b2eedaebdf36851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSpeed: 0.25
+  spawnAnimationSpeed: 0.1
+  idleSprites:
+  - {fileID: 681405506, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  - {fileID: 1120280784, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  - {fileID: -169041946, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  - {fileID: -787506792, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  spawnSprites:
+  - {fileID: -46143563, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  - {fileID: -828207695, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  - {fileID: 632593358, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  - {fileID: -1904909492, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
+  - {fileID: 1455755860, guid: 025841ee4a194c24c9ad3f198d0f1a4f, type: 3}
 --- !u!1 &1905527772849838194
 GameObject:
   m_ObjectHideFlags: 0

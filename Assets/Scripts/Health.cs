@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public int maxHealth;
     int currentHealth;
     public UnityEvent OnDeath;
+    public bool takeDamage = true;
 
     public bool showDebug;
     private void Awake()
@@ -20,6 +21,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (!takeDamage) return;
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -30,6 +32,11 @@ public class Health : MonoBehaviour
     void Die()
     {
         OnDeath.Invoke();
+    }
+
+    public void SetInvincible(bool invincible)
+    {
+        takeDamage = !invincible;
     }
 
     public void DestroyObject()

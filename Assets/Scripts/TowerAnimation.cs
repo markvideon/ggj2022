@@ -56,7 +56,6 @@ public class TowerAnimation : BufferedState<TowerAnimation, TowerAnimationFrame>
         animationSpeedTimer += Time.deltaTime * gameClock.flowRate;
         if ((animationSpeedTimer >= shootAnimationSpeed && shooting) || (animationSpeedTimer >= animationSpeed && !shooting))
         {
-            print(shooting);
             currentSpriteIndex++;
             if (shooting)
             {

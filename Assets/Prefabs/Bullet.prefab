@@ -169,7 +169,7 @@ MonoBehaviour:
   damage: 1
   speed: 4
   maxBounces: -108
-  destroyOnHit: 1
+  destroyOnHit: 0
 --- !u!50 &1706084596
 Rigidbody2D:
   serializedVersion: 4

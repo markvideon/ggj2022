@@ -81,7 +81,7 @@ public class Bullet : BufferedState<Bullet, BulletFrame>
         if (health)
         {
             health.TakeDamage(damage);
-            if (destroyOnHit)
+            if (destroyOnHit && health.takeDamage)
             {
                 Destroy(gameObject);
             }

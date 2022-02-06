@@ -247,7 +247,7 @@ AudioSource:
   m_GameObject: {fileID: 27689842}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4750938759042087497, guid: 1486e68e0e3e3ce429b41d15fed38636, type: 2}
   m_audioClip: {fileID: 8300000, guid: bcee2140aff7b3e4b9109684e3571905, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -525,6 +525,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Menu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 8230251312864692876, guid: f4526049856c60b4a8eb70f0913d135b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4750938759042087497, guid: 1486e68e0e3e3ce429b41d15fed38636, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4526049856c60b4a8eb70f0913d135b, type: 3}
 --- !u!224 &674077326 stripped
@@ -687,6 +691,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8230251312864692876, guid: 5b0116c46d4a7410391fc9723dffaae6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4750938759042087497, guid: 1486e68e0e3e3ce429b41d15fed38636, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0116c46d4a7410391fc9723dffaae6, type: 3}
 --- !u!224 &706566154 stripped
@@ -1124,6 +1132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win
       objectReference: {fileID: 0}
+    - target: {fileID: 6273249049867421826, guid: df28291afa0174e4ebc013aac8620935, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4750938759042087497, guid: 1486e68e0e3e3ce429b41d15fed38636, type: 2}
     - target: {fileID: 6450308340218459828, guid: df28291afa0174e4ebc013aac8620935, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 220
@@ -1408,6 +1420,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4770307323266124573, guid: e9f9640f8bedf4a35b425c22e876ffc6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Intro
+      objectReference: {fileID: 0}
     - target: {fileID: 4770307323985894655, guid: e9f9640f8bedf4a35b425c22e876ffc6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1420,6 +1436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5195578072370682819, guid: e9f9640f8bedf4a35b425c22e876ffc6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4750938759042087497, guid: 1486e68e0e3e3ce429b41d15fed38636, type: 2}
     - target: {fileID: 5195578072370682828, guid: e9f9640f8bedf4a35b425c22e876ffc6, type: 3}
       propertyPath: m_Pivot.x
       value: 0

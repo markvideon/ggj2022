@@ -27,8 +27,15 @@ public class MusicController : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         gameClock = FindObjectOfType<GameClock>();
-        gameClock.AddToOnChangeFlow(ChangeDirection);
-        ChangeDirection();
+        if (gameClock)
+        {
+            gameClock.AddToOnChangeFlow(ChangeDirection);
+            ChangeDirection();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnSceneUnloaded(Scene scene)
@@ -38,7 +45,8 @@ public class MusicController : MonoBehaviour
 
     private void OnDestroy()
     {
-        gameClock.RemoveFromOnChangeFlow(ChangeDirection);
+        if (gameClock)
+            gameClock.RemoveFromOnChangeFlow(ChangeDirection);
     }
 
 

@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     public bool takeDamage = true;
     public bool updateUI;
     Healthbar healthBar;
+    public SFX onHitSFX;
 
     public bool showDebug;
     private void Awake()
@@ -40,7 +41,7 @@ public class Health : MonoBehaviour
         currentHealth -= damage;
 
         if (updateUI) healthBar.UpdateHearts(currentHealth);
-
+        if (onHitSFX) onHitSFX.Play(true);
         if (currentHealth <= 0)
         {
             Die();

@@ -5,15 +5,17 @@ using UnityEngine.Tilemaps;
 
 public class BulletFrame : Frame
 {
-    public BulletFrame(Vector3 position, Quaternion rotation, float spawnedTime)
+    public BulletFrame(Vector3 position, Quaternion rotation, float spawnedTime, bool playHitThisFrame)
     {
         this.position = position;
         this.rotation = rotation;
         this.spawnedTime = spawnedTime;
+        this.playHitThisFrame = playHitThisFrame;
     }
     public Vector3 position;
     public Quaternion rotation;
     public float spawnedTime;
+    public bool playHitThisFrame;
 }
 
 public class Bullet : BufferedState<Bullet, BulletFrame>
@@ -27,12 +29,13 @@ public class Bullet : BufferedState<Bullet, BulletFrame>
     Vector2 storedVelocity;
     int bounces;
     bool spawnTimeSet;
-    SFX sfx;
+    public SFX spawnSFX, bounceSFX;
+    bool bufferHit;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        sfx = GetComponent<SFX>();
+        spawnSFX = GetComponent<SFX>();
     }
 
     private void Start()
@@ -44,14 +47,16 @@ public class Bullet : BufferedState<Bullet, BulletFrame>
             transform.rotation = Frame.rotation;
             if (gameClock.accumulatedTime <= Frame.spawnedTime)
             {
-                sfx.Play(false);
-                Destroy(gameObject, sfx.source.clip.length);
+                spawnSFX.Play(false);
+                Destroy(gameObject, spawnSFX.source.clip.length);
             }
+            if (Frame.playHitThisFrame) bounceSFX.Play(false);
         });
         SetOnWrite(() =>
         {
-            var newFrame = new BulletFrame(transform.position, transform.rotation, spawnTimeSet ? -100 : gameClock.accumulatedTime);
+            var newFrame = new BulletFrame(transform.position, transform.rotation, spawnTimeSet ? -100 : gameClock.accumulatedTime, bufferHit);
             spawnTimeSet = true;
+            bufferHit = false;
             Record(newFrame);
         });
         gameClock = FindObjectOfType<GameClock>();
@@ -98,6 +103,8 @@ public class Bullet : BufferedState<Bullet, BulletFrame>
             Vector2 dir = Vector2.Reflect(storedVelocity.normalized, collision.contacts[0].normal).normalized;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            bufferHit = true;
+            bounceSFX.Play(true);
         }
         else
         {

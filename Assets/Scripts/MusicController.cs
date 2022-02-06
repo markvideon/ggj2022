@@ -62,10 +62,10 @@ public class MusicController : MonoBehaviour
                 break;
         }
         if (exit) return;
-        print(goForward);
         forwardMusic.volume = goForward ? 1f : 0f;
         backwardMusic.volume = goForward ? 0f : 1f;
         //SFXSource.PlayOneShot(goForward ? forwardSFX : backwardSFX);
         forward = goForward;
+        print("time switched direction forward? " + goForward);
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2572953227381593864}
   - component: {fileID: 2572953227381593871}
   - component: {fileID: 2043748370365183654}
+  - component: {fileID: 7315756243057007962}
   m_Layer: 7
   m_Name: Hexagon Flat-Top
   m_TagString: Untagged
@@ -118,6 +119,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.21
+--- !u!114 &7315756243057007962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2572953227381593869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f239a5b5cd0cedb4eb1ffbb4caa4baff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2572953227928623701
 GameObject:
   m_ObjectHideFlags: 0

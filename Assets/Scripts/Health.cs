@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
     int currentHealth;
     public UnityEvent OnDeath;
     public bool takeDamage = true;
+    public bool updateUI;
+    Healthbar healthBar;
 
     public bool showDebug;
     private void Awake()
@@ -19,10 +21,26 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    private void Start()
+    {
+        if (updateUI)
+        {
+            healthBar = FindObjectOfType<Healthbar>();
+            if (healthBar.health > 0)
+            {
+                currentHealth = healthBar.health;
+            }
+            healthBar.UpdateHearts(currentHealth);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if (!takeDamage) return;
         currentHealth -= damage;
+
+        if (updateUI) healthBar.UpdateHearts(currentHealth);
+
         if (currentHealth <= 0)
         {
             Die();
@@ -31,6 +49,7 @@ public class Health : MonoBehaviour
 
     void Die()
     {
+        if (updateUI) Destroy(healthBar.transform.root.gameObject);
         OnDeath.Invoke();
     }
 
@@ -49,7 +68,7 @@ public class Health : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (showDebug)
-            Handles.Label(transform.position, string.Format("{0}/{1}",  currentHealth, maxHealth));
+            Handles.Label(transform.position, string.Format("{0}/{1}", currentHealth, maxHealth));
     }
 #endif
 }

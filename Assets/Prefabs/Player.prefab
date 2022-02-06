@@ -1326,6 +1326,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   takeDamage: 1
+  updateUI: 1
   showDebug: 1
 --- !u!82 &970252444
 AudioSource:

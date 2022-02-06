@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontal, vertical;
     GameClock gameClock;
     float targetSpeed;
+    public bool canMove = true;
 
     private Pause _pausePanel;
     private Win _winPanel;
@@ -100,7 +101,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal, vertical) * moveSpeed;
+        if (canMove)
+        {
+            rb.velocity = new Vector2(horizontal, vertical) * moveSpeed;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
+        
         //targetSpeed = Mathf.InverseLerp(0, moveSpeed, rb.velocity.magnitude) + minTimeSpeed;
         //gameClock.SetSpeed(Mathf.MoveTowards(gameClock.flowRate, targetSpeed, timeChangeSpeed * Time.deltaTime));
         gameClock.SetSpeed(Mathf.InverseLerp(0, moveSpeed, rb.velocity.magnitude));

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
+    public AudioClip enterSound;
     LevelManager levelManager;
+    AudioSource audio;
 
     private void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        audio = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +21,7 @@ public class Portal : MonoBehaviour
         if (pm)
         {
             levelManager.EndLevel();
+            audio.PlayOneShot(enterSound);
         }
     }
 }

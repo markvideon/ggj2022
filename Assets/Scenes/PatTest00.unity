@@ -5921,7 +5921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 382622501, guid: 60d5239480933ef43b4d936ace0635ae, type: 3}
       propertyPath: nextLevelname
-      value: Credits
+      value: PatTest01
       objectReference: {fileID: 0}
     - target: {fileID: 382622501, guid: 60d5239480933ef43b4d936ace0635ae, type: 3}
       propertyPath: onLevelComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target

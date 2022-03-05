@@ -732,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 4900000, guid: 86b87d0980f9e415991cd90fb9c0aab4, type: 3}
+  _status: 2
 --- !u!4 &871347759
 Transform:
   m_ObjectHideFlags: 0
@@ -860,6 +861,7 @@ GameObject:
   - component: {fileID: 1256684455}
   - component: {fileID: 1256684457}
   - component: {fileID: 1256684458}
+  - component: {fileID: 1256684459}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -935,6 +937,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f06584736213f4b9e99ac386139c2a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1256684459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256684453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08dcaa1b7488d4a3db69ba944de49fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1310456983

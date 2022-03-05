@@ -98,14 +98,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f3c9c2a72c06846b2574a92ad77885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.3
-  sprites:
+  animationSpeed: 0.25
+  shootAnimationSpeed: 0.05
+  idleSprites:
   - {fileID: -1030111531, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
   - {fileID: 1351137859, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
   - {fileID: -1449377675, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
   - {fileID: 955066578, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
   - {fileID: 1763501712, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
   - {fileID: -174002181, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  shootSprites:
+  - {fileID: -8682713, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: 734316976, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: -46933020, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: 1084371473, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: 1663307260, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: -361456141, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: -1215769484, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  - {fileID: 726134196, guid: 5ea44b09dd035254e9a6617aa56e7a50, type: 3}
+  shotSpriteIndex: 5
 --- !u!60 &1120774224331520060
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -192,6 +203,7 @@ MonoBehaviour:
   barrelPosition: {fileID: 8711216805374185506}
   refireRate: 1
   active: 1
+  fireInstantly: 0
   bullet: {fileID: 2572953227928623701, guid: 7050c72731af1d94da4d101de5dbd77b, type: 3}
 --- !u!114 &4143894223870631997
 MonoBehaviour:

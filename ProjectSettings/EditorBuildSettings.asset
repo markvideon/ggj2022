@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 90ce58e628e1a9c47aa3aa915b20c2f3
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 3fbe2cebbbdbe024384ad23feb992fc7
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 00167d22aaabf3c4f805ee20c8dee822
   - enabled: 1
     path: Assets/Scenes/PatTest00.unity
     guid: e713e71004acbdd46b5e6dac9b61338b
@@ -48,9 +51,6 @@ EditorBuildSettings:
     path: Assets/Scenes/PatTest11.unity
     guid: 2ee99c457b38d15428b11858b35da4c4
   - enabled: 1
-    path: Assets/Scenes/PatTest12.unity
-    guid: fe7b1eb029e358f449d1d6ec5dac1932
-  - enabled: 1
     path: Assets/Scenes/PatTest13.unity
     guid: d62dcf9e9e5d75e4a9f11df9bcc5468f
   - enabled: 1
@@ -58,9 +58,24 @@ EditorBuildSettings:
     guid: 80b61ee9699fc96438f92c77f125eea8
   - enabled: 1
     path: Assets/Scenes/PatTest15.unity
+    guid: 67505b06b1e524dccaa45cd00d90120b
+  - enabled: 1
+    path: Assets/Scenes/PatTest17.unity
     guid: e6771faf724a7da448e60dd32efce3cf
   - enabled: 1
     path: Assets/Scenes/PatTest16.unity
     guid: 369670d2d34bd814abb2a940d4fd1290
+  - enabled: 1
+    path: Assets/Scenes/PatTest18.unity
+    guid: 143ede113d48e408b82597baa3bd7097
+  - enabled: 1
+    path: Assets/Scenes/PatTest12.unity
+    guid: a7d70c406856caa489c63ada850be0e5
+  - enabled: 1
+    path: Assets/Scenes/PatTest19.unity
+    guid: edec35ee4dba52740bdf115831953521
+  - enabled: 1
+    path: Assets/Scenes/PatTest20.unity
+    guid: 6544aac434d06c34faf18f2d0b7fd173
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: b35f40808732e4402ad8aaf41391df96, type: 2}

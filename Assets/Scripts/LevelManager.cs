@@ -13,15 +13,20 @@ public class LevelManager : MonoBehaviour
     bool portalOpen;
     public UnityEvent onLevelComplete, onLevelEnd;
     PlayerMovement pm;
+    KeySFX keySFX;
+    FTBManager ftb;
 
     private void Start()
     {
         pm = FindObjectOfType<PlayerMovement>();
+        keySFX = GetComponent<KeySFX>();
+        ftb = FindObjectOfType<FTBManager>();
     }
 
     public void AddKey()
     {
         currentKeyCount++;
+        keySFX.Play(currentKeyCount);
         if (currentKeyCount >= requiredKeyCount)
         {
             CompleteLevel();
@@ -50,6 +55,14 @@ public class LevelManager : MonoBehaviour
 
     public void NextScene()
     {
+        StartCoroutine(NextSceneCoroutine());
+    }
+
+    IEnumerator NextSceneCoroutine()
+    {
+        pm.canMove = false;
+        ftb.Fade(false);
+        yield return new WaitForSeconds(2f);
         if (nextLevelname == "")
         {
             pm.OnWin();
@@ -58,6 +71,5 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(nextLevelname);
         }
-        
     }
 }

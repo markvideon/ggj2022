@@ -13,16 +13,21 @@ public class TowerAnimationFrame : Frame
 
 public class TowerAnimation : BufferedState<TowerAnimation, TowerAnimationFrame>
 {
-    public float animationSpeed;
-    public Sprite[] sprites;
+    public float animationSpeed, shootAnimationSpeed;
+    public Sprite[] idleSprites;
+    public Sprite[] shootSprites;
+    public int shotSpriteIndex;
     SpriteRenderer spriteRenderer;
     int currentSpriteIndex;
     float animationSpeedTimer;
     GameClock gameClock;
+    bool shooting;
+    Turret turret;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        turret = GetComponentInParent<Turret>();
     }
 
     private void Start()
@@ -49,15 +54,53 @@ public class TowerAnimation : BufferedState<TowerAnimation, TowerAnimationFrame>
     {
         if (gameClock.flow == FlowDirection.backward) return;
         animationSpeedTimer += Time.deltaTime * gameClock.flowRate;
-        if (animationSpeedTimer >= animationSpeed)
+        if ((animationSpeedTimer >= shootAnimationSpeed && shooting) || (animationSpeedTimer >= animationSpeed && !shooting))
         {
             currentSpriteIndex++;
-            if (currentSpriteIndex == sprites.Length)
+            if (shooting)
             {
-                currentSpriteIndex = 0;
+                if (currentSpriteIndex == shootSprites.Length)
+                {
+                    currentSpriteIndex = 0;
+                    shooting = false;
+                    spriteRenderer.sprite = idleSprites[currentSpriteIndex];
+
+                }
+                else if (currentSpriteIndex == shotSpriteIndex)
+                {
+                    turret.Shoot();
+                    spriteRenderer.sprite = shootSprites[currentSpriteIndex];
+                }
+                else
+                {
+                    spriteRenderer.sprite = shootSprites[currentSpriteIndex];
+                }
             }
-            spriteRenderer.sprite = sprites[currentSpriteIndex];
+            else
+            {
+                if (currentSpriteIndex == idleSprites.Length)
+                {
+                    currentSpriteIndex = 0;
+                }
+                spriteRenderer.sprite = idleSprites[currentSpriteIndex];
+            }
+
             animationSpeedTimer = 0f;
         }
+    }
+
+    public void ShootAnimation(bool shootImmediately)
+    {
+        shooting = true;
+        if (shootImmediately)
+        {
+            currentSpriteIndex = shotSpriteIndex - 1;
+        }
+        else
+        {
+            currentSpriteIndex = -1;
+        }
+        
+
     }
 }

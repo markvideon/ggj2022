@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class IntroController : MonoBehaviour
 {
     public TextFade text1, text2, text3;
+    bool loading = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class IntroController : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("PatTest00");
+        if (!loading)
+        {
+            SceneManager.LoadScene("PatTest00");
+            loading = true;
+        }
     }
 }

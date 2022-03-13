@@ -376,7 +376,7 @@ AudioSource:
   m_GameObject: {fileID: 382622500}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3680193954907699758, guid: 1486e68e0e3e3ce429b41d15fed38636, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1384,7 +1384,7 @@ MonoBehaviour:
     m_ActionId: 2535d80e-6040-438f-bf41-c1b5510df17d
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -1445,7 +1445,7 @@ AudioSource:
   m_GameObject: {fileID: 5086679756257074344}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3680193954907699758, guid: 1486e68e0e3e3ce429b41d15fed38636, type: 2}
   m_audioClip: {fileID: 8300000, guid: 597bb9b73fa302d449feeda1ab561c95, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

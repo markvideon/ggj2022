@@ -37,6 +37,12 @@ public class CreditController : MonoBehaviour
 
     public void LoadGame()
     {
+        foreach (var item in FindObjectsOfType<GameObject>())
+        {
+            if (item == gameObject) continue;
+            if (item.name == "EventSystem") continue;
+            Destroy(item);
+        }
         SceneManager.LoadScene("MainMenu");
     }
 }

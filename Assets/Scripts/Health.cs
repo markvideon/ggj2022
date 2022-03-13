@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
     {
         if (!takeDamage) return;
         currentHealth -= damage;
-
+        print(currentHealth);
         if (updateUI) healthBar.UpdateHearts(currentHealth);
         if (onHitSFX) onHitSFX.Play(true);
         if (currentHealth <= 0)
